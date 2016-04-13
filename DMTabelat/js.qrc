@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>js/Tabela8-1.js</file>
+        <file>js/Tabela2-1.js</file>
+        <file>js/Tabela8-14.js</file>
+    </qresource>
+</RCC>

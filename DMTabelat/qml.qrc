@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Tabela2-1.qml</file>
+        <file>Tabela8-2.qml</file>
+        <file>Tabela8-14.qml</file>
+    </qresource>
+</RCC>
