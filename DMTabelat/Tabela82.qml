@@ -108,7 +108,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked:{
-                loader.setSource("")
+                stack.pop()
 
                 mouseAreas = true
             }

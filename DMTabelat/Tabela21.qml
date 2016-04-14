@@ -4,20 +4,9 @@ import QtQuick.Controls 1.2
 
 import "js/Tabela2-1.js" as Tabela2_1JS
 
-
 Rectangle {
-    color: "teal"
-    anchors.fill: parent
-
-    Loader {
-        id: loader
-        anchors.fill: parent
-        z:1
-
-        onLoaded:  mouseAreas = false
-        onSourceChanged:  animacioni.running = true
-
-    }
+    color: "gray"
+//    anchors.fill: parent
 
 
 
@@ -115,22 +104,21 @@ Rectangle {
         anchors.verticalCenter: getValues.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 6
-        anchors.left: parent.horizontalCenter
-        anchors.leftMargin: 5
+        anchors.leftMargin: 3
         height: getValues.height
         color: "darkorange"
         border.color: back.pressed ?"yellow": "darkorange"
-        z:100
+        width: parent.width/2
         border.width: 2
 
         MouseArea {
             anchors.fill: parent
-            onClicked:{
-                loader.setSource("")
+            onClicked: {
 
-                mouseAreas = true
+                root.mouseAreas = true;
+                stack.pop()
+
             }
-
         }
 
         Text {
@@ -144,4 +132,3 @@ Rectangle {
 
 
 }
-
