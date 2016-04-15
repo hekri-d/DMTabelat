@@ -9,7 +9,16 @@ Item {
         anchors.right: parent.right
         height: parent.height/10
         color: "red"
+        visible: false
     }
+
+
+
+
+
+
+
+
 
 
 

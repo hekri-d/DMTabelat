@@ -12,26 +12,6 @@ Window {
     height: 460
     color: "lightgray"
 
-    //    Loader {
-    //        id: loader
-    //        anchors.fill: parent
-    //        z:1
-
-    //        onLoaded:  mouseAreas = false
-    //        onSourceChanged:  animacioni.running = true
-
-    //    }
-
-    //    NumberAnimation {
-    //        id: animacioni
-    //        target: loader.item
-    //        property: "scale"
-
-    //        from:0.8
-    //        to: 1
-    //        duration: 200
-    //        easing.type: Easing.Linear
-    //    }
 
     property bool mouseAreas: true;
 
