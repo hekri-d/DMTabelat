@@ -11,7 +11,7 @@ Rectangle {
 
     Rectangle {
         id: topRect; anchors.top: parent.top
-        height: 20; width: parent.width
+        height: parent.height/18; width: parent.width
         visible: false
     }
 
@@ -26,12 +26,12 @@ Rectangle {
         spacing: 5
 
 
-        Text { id: teksti11;text: qsTr("Hapi - P (mm)")        }
-        Text { id: teksti12;text: qsTr("Diam. mesatar - d2=D2(mm)")        }
-        Text { id: teksti13;text: qsTr("Diam. i thelbit - D1(mm)")        }
-        Text { id: teksti14;text: qsTr("Thell. e bartjes - H1(mm)")        }
-        Text { id: teksti15;text: qsTr("Sip. e p.terthore - A1(mm2)")        }
-        Text { id: teksti16;text: qsTr("Kendi i filetos - fi (shkalle)")        }
+        Text { id: teksti11;font.pixelSize: topRect.height*0.7; text: qsTr("P (mm)")        }
+        Text { id: teksti12;font.pixelSize: topRect.height*0.7; text: qsTr("d2=D2(mm)")        }
+        Text { id: teksti13;font.pixelSize: topRect.height*0.7; text: qsTr("D1(mm)")        }
+        Text { id: teksti14;font.pixelSize: topRect.height*0.7; text: qsTr("H1(mm)")        }
+        Text { id: teksti15;font.pixelSize: topRect.height*0.7; text: qsTr("A1(mm2)")        }
+        Text { id: teksti16;font.pixelSize: topRect.height*0.7; text: qsTr("fi (shkalle)")        }
 
     }
 
@@ -43,12 +43,12 @@ Rectangle {
         anchors.leftMargin: 20
         spacing: 5
 
-        Text { id: teksti21;text: qsTr("")        }
-        Text { id: teksti22;text: qsTr("")        }
-        Text { id: teksti23;text: qsTr("")        }
-        Text { id: teksti24;text: qsTr("")        }
-        Text { id: teksti25;text: qsTr("")        }
-        Text { id: teksti26;text: qsTr("")        }
+        Text { id: teksti21;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
+        Text { id: teksti22;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
+        Text { id: teksti23;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
+        Text { id: teksti24;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
+        Text { id: teksti25;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
+        Text { id: teksti26;font.pixelSize: topRect.height*0.7; text: qsTr("")        }
 
     }
 
@@ -58,34 +58,41 @@ Rectangle {
         anchors.top: rreshtat2.bottom
         anchors.topMargin: 20
         anchors.horizontalCenter: topRect.horizontalCenter
-
-
         width: parent.width/2
-        height: 30
+        height: topRect.height
+        style: TextFieldStyle {
+            background: Rectangle {
+                color: "lightblue"
+            }
+        }
     }
 
 
+
+
+
+
+
     Rectangle {
-        id: getValues
+        id: getValues  //ne te vertete eshte back
         anchors.top: inputi.bottom
         anchors.topMargin: parent.height/20
         anchors.left: parent.left
-        anchors.leftMargin: 6
-        anchors.right: topRect.horizontalCenter
-        anchors.rightMargin: 3
+        anchors.leftMargin: topRect.width/19
+        width: topRect.width/4
         color: "darkorange"
         height: parent.height/8
-        border.width: 2
+        border.width: 3
         border.color: getValuesButton.pressed ?"yellow": "darkorange"
 
         MouseArea {
             id: getValuesButton
             anchors.fill: parent
-            onClicked: Tabela8_1JS.displayValues(inputi.text)
+            onClicked: stack.pop()//Tabela8_14JS.displayValues(materialInput.text, diameterInput.text) //.displayValues(inputi.text)
         }
 
         Text {
-            text: qsTr("GET VALUES")
+            text: qsTr("KTHEHU")
             color: "black"
             anchors.centerIn: parent
         }
@@ -93,13 +100,14 @@ Rectangle {
 
 
     Rectangle {
-        id: back
+        id: back  //ne te verte eshte vlerat (getValues)
         anchors.verticalCenter: getValues.verticalCenter
-        anchors.right: parent.right
-        anchors.rightMargin: 6
-        anchors.left:topRect.horizontalCenter
-        anchors.leftMargin: 3
+        anchors.right: quit.left
+        anchors.rightMargin: topRect.width/22
+        anchors.left: getValues.right
+        anchors.leftMargin: topRect.width/22
         height: getValues.height
+        width: topRect.width/4
         color: "darkorange"
         border.color: back.pressed ?"yellow": "darkorange"
 
@@ -108,8 +116,8 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked:{
-                stack.pop()
 
+                Tabela8_1JS.displayValues(inputi.text)
                 mouseAreas = true
             }
 
@@ -117,13 +125,34 @@ Rectangle {
 
         Text {
             id: name
-            text: qsTr("BACK")
+            text: qsTr("VLERAT")
             color: "black"
             anchors.centerIn: parent
         }
     }
 
 
+
+    Rectangle {
+        id: quit
+        anchors.verticalCenter: back.verticalCenter
+        anchors.right: parent.right
+        anchors.rightMargin: topRect.width/19
+        height: back.height
+        width: topRect.width/3.8
+        border.color: quit.pressed ?"yellow": "darkorange"
+        color: "darkorange"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: Qt.quit();
+        }
+
+        Text {
+            text: qsTr("PËRFUNDO")
+            anchors.centerIn: parent
+
+        }
+    }
 
 }
 

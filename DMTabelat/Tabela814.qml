@@ -51,7 +51,7 @@ Rectangle {
         TextEdit {
             id: displaySigmaT
             anchors.centerIn: parent
-            font.pixelSize: topRect.height*0.8
+            font.pixelSize: topRect.height*0.7
 
             text: ""
         }
@@ -66,7 +66,7 @@ Rectangle {
         text: qsTr("TAU_T")
         anchors.left: sigmat.left
         anchors.top: sigmat.bottom
-        anchors.topMargin: 5
+        anchors.topMargin: topRect.height/5
         font.pixelSize: topRect.height*0.7
     }
 
@@ -227,8 +227,16 @@ Rectangle {
         anchors.left: material.right
         anchors.leftMargin:  parent.width/22
         anchors.verticalCenter: material.verticalCenter
+        height: topRect.height
         width: parent.width/5
         font.pixelSize: topRect.height*0.6
+
+        style: TextFieldStyle {
+            background: Rectangle {
+                anchors.fill: parent
+                color: "#d8d8d8d8"
+            }
+        }
 
     }
 
@@ -259,7 +267,6 @@ Rectangle {
         anchors.leftMargin: 10
         anchors.verticalCenter: filet.verticalCenter
         checked: true
-
         exclusiveGroup: exclusiveGroup
     }
 
@@ -301,7 +308,15 @@ Rectangle {
         anchors.verticalCenter: diameter.verticalCenter
         anchors.horizontalCenter: materialInput.horizontalCenter
         width: parent.width/5
+        height: topRect.height
         font.pixelSize: topRect.height*0.6
+
+        style: TextFieldStyle {
+            background: Rectangle {
+                anchors.fill: parent
+                color: "#d8d8d8d8"
+            }
+        }
     }
 
 
@@ -377,7 +392,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: topRect.width/19
         height: back.height
-        width: topRect.width/4
+        width: topRect.width/3.8
         border.color: quit.pressed ?"yellow": "darkorange"
         color: "darkorange"
         MouseArea {
