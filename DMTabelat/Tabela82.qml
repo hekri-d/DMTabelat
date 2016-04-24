@@ -7,7 +7,7 @@ import "js/Tabela8-1.js" as Tabela8_1JS
 Rectangle {
     width: 100
     height: 62
-    color: "gray"
+    color: "teal"
 
     Rectangle {
         id: topRect; anchors.top: parent.top

@@ -5,9 +5,17 @@ import QtQuick.Controls 1.2
 import "js/Tabela2-1.js" as Tabela2_1JS
 
 Rectangle {
-    color: "gray"
+    color: "teal"
 //    anchors.fill: parent
 
+    Rectangle {
+        id: topRect
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: parent.right
+        height: parent.height/20
+        color: "blue"
+    }
 
 
     Text {
@@ -15,7 +23,7 @@ Rectangle {
         text: qsTr("TOLERANCA (micro m): ")
         anchors.top: parent.top
         anchors.topMargin: parent.height/8
-        font.pixelSize: parent.width/20
+        font.pixelSize: topRect.height*0.9
         anchors.left: parent.left
         anchors.leftMargin: parent.width/10
     }
@@ -28,7 +36,20 @@ Rectangle {
         anchors.topMargin: parent.height/8
         anchors.left: tolerancaLabel.right
         anchors.leftMargin: 10
-        font.pixelSize: parent.width/20
+        font.pixelSize: topRect.height*0.9
+
+    }
+
+
+    Rectangle {
+        color: "black"
+        anchors.top: toleranca.bottom
+        anchors.topMargin: 0
+        anchors.right: parent.right
+        anchors.rightMargin: 20
+        anchors.left: toleranca.left
+        height: 1
+
     }
 
     Text {
@@ -36,7 +57,7 @@ Rectangle {
         text: qsTr("CILESIA ")
         anchors.top: toleranca.bottom
         anchors.topMargin: parent.height/8
-        font.pixelSize: parent.width/20
+        font.pixelSize: topRect.height*0.9
         anchors.left: parent.left
         anchors.leftMargin: parent.width/4
     }
@@ -46,7 +67,7 @@ Rectangle {
         id: diametriLabel
         text: qsTr("DIAMETRI")
         anchors.right: cilesiaLabel.right
-        font.pixelSize: parent.width/20
+        font.pixelSize: topRect.height*0.9
         anchors.top: cilesiaLabel.bottom
         anchors.topMargin: 10
     }
@@ -58,7 +79,7 @@ Rectangle {
         anchors.left: cilesiaLabel.right
         anchors.leftMargin: 20
         width: parent.width/6
-        height: 30
+        height: topRect.height*2
     }
 
     TextField {
@@ -67,7 +88,7 @@ Rectangle {
         anchors.verticalCenter: diametriLabel.verticalCenter
         anchors.left: inputCilesia.left
         width: inputCilesia.width
-        height: 30
+        height: topRect.height*2
     }
 
 

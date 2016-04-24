@@ -14,16 +14,6 @@ Item {
 
 
 
-
-
-
-
-
-
-
-
-
-
     Rectangle {
         id: getValues
 //        anchors.top: inputDiametri.bottom
