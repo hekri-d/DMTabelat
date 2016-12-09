@@ -123,7 +123,7 @@ Rectangle {
         text: qsTr("KSI1_Z")
         anchors.left: sigmat.left
         anchors.top: ksiT.bottom
-        anchors.topMargin: topRect.height/3
+        anchors.topMargin: topRect.height/2.5
         font.pixelSize: topRect.height*0.7
     }
 
@@ -150,7 +150,7 @@ Rectangle {
         text: qsTr("KSI1_T")
         anchors.left: ksi1z.left
         anchors.top: displayKsi1zRect.bottom
-        anchors.topMargin: topRect.height/5
+        anchors.topMargin: topRect.height/7
         font.pixelSize: topRect.height*0.7
     }
 
